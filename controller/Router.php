@@ -19,12 +19,10 @@ class Router {
             if(isset($_GET['url']))
             {
                 $url = explode('/', filter_var($_GET['url'], FILTER_SANITIZE_URL));
-                // echo("url : ".$url[0]."\n");
                 
                 $controller = ucfirst(strtolower($url[0]));
                 $controllerClass = "Controller".$controller;
                 $controllerFile = "controller/".$controllerClass.".php";
-                // echo("controllerFile : ".$controllerFile."\n");
 
                 if(file_exists($controllerFile))
                 {
@@ -41,7 +39,8 @@ class Router {
             else
             {
                 require_once('controller/ControllerHome.php');
-                $this->_ctrl = new ControllerHome($url);
+                // $this->_ctrl = new ControllerHome($url);
+                $this->_ctrl = new ControllerUserpanel($url);
             }
         }
         catch(Exception $e)

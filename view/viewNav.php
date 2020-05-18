@@ -1,4 +1,3 @@
-
 <script type="text/javascript">
 $(function(){
     var lastScrollTop = 0;
@@ -51,10 +50,10 @@ $(function(){
 
 
 
-<?php require_once("consts.php"); ?>
+<?php require_once("include/consts.php"); ?>
 
-<?php include("connect_modal.php"); ?>
-<?php include("register_modal.php"); ?>
+<?php include("include/connect_modal.php"); ?>
+<?php include("include/register_modal.php"); ?>
 
     <header>
         <div id="header-top" class="d-flex align-items-center justify-content-between">

@@ -24,7 +24,7 @@ abstract class Model
     protected function getAll($table, $obj)
     {
         $results = [];
-        $stmt = $this->getBdd()->prepare('SELECT * FROM '.$table.' ORDER BY id_article desc');
+        $stmt = $this->getBdd()->prepare('SELECT * FROM '.$table); //.' ORDER BY id_article desc');
         $stmt->execute();
         while($data = $stmt->fetch(PDO::FETCH_ASSOC))
         {

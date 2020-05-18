@@ -1,14 +1,16 @@
 <?php
 
-// id_artist	artist_name	artist_photo	artist_birth	artist_country
+// id_film  film_title  film_date   film_length film_note   film_synopsis   film_poster
 
-class Artist 
+class Film
 {
-    private $_id_artist;
-    private $_artist_name;
-    private $_artist_photo;
-    private $_artist_birth;
-    private $_artist_photo;
+    private $_id_film;
+    private $_film_title;
+    private $_film_date;
+    private $_film_length;
+    private $_film_note;
+    private $_film_synopsis;
+    private $_film_poster;
 
     public function __construct(array $data)
     {
@@ -25,48 +27,78 @@ class Artist
         }
     }
 
-    public function getId_artist()
+    public function getId_film()
     {
-            return $this->_id_artist;
+            return $this->_id_film;
     }
-    public function getArtist_name()
+    public function getFilm_title()
     {
-            return $this->_artist_name;
+            return $this->_film_title;
     }
-    public function getArtist_birth()
+    public function getFilm_date()
     {
-            return $this->_artist_birth;
+            return $this->_film_date;
     }
-    public function getArtist_photo()
+    public function getFilm_length()
     {
-            return $this->_artist_photo;
+            return $this->_film_length;
+    }
+    public function getFilm_note()
+    {
+            return $this->_film_note;
+    }
+    public function getFilm_synopsis()
+    {
+            return $this->_film_synopsis;
+    }
+    public function getFilm_poster()
+    {
+            return $this->_film_poster;
     }
 
     // Setters
 
-    public function setId_artist($t)
+    public function setId_film($t)
     {   
         // echo '<br>\n '.$t.' !!!';
         if(is_string($t))
-            $this->_id_artist = $t;
+            $this->_id_film = $t;
     }
-    public function setArtist_name($t)
+    public function setFilm_title($t)
     {   
         // echo '<br>\n '.$t.' !!!';
         if(is_string($t))
-            $this->_artist_name = $t;
+            $this->_film_title = $t;
     }
-    public function setArtist_birth($t)
-    {
+    public function setFilm_date($t)
+    {   
         // echo '<br>\n '.$t.' !!!';
         if(is_string($t))
-            $this->_artist_birth = $t;
+            $this->_film_date = $t;
     }
-    public function setArtist_photo($t)
-    {
+    public function setFilm_length($t)
+    {   
         // echo '<br>\n '.$t.' !!!';
         if(is_string($t))
-            $this->_artist_photo = $t;
+            $this->_film_length = $t;
+    }
+    public function setFilm_note($t)
+    {   
+        // echo '<br>\n '.$t.' !!!';
+        if(is_string($t))
+            $this->_film_note = $t;
+    }
+    public function setFilm_synopsis($t)
+    {   
+        // echo '<br>\n '.$t.' !!!';
+        if(is_string($t))
+            $this->_film_synopsis = $t;
+    }
+    public function setFilm_poster($t)
+    {   
+        // echo '<br>\n '.$t.' !!!';
+        if(is_string($t))
+            $this->_film_poster = $t;
     }
 
 }
