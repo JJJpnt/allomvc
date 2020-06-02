@@ -41,6 +41,22 @@ $(function(){
 
     });
 
+
+
+    $("#logout").click(function(e){
+        // include/user_logout.php
+        e.preventDefault(); 
+
+        $.post("include/user_logout.php", function(data){
+                alert(data);
+                location.reload();
+
+            }
+
+        );
+        return false;
+    });
+
 });
 
 
@@ -50,7 +66,7 @@ $(function(){
 
 
 
-<?php require_once("include/consts.php"); ?>
+<!-- <?php require_once("include/consts.php"); ?> -->
 
 <?php include("include/connect_modal.php"); ?>
 <?php include("include/register_modal.php"); ?>
@@ -75,8 +91,9 @@ $(function(){
             <!-- <div class="nav-sides mr-3 align-middle"><a class="text-right" href="" data-toggle="modal" data-target="#connectModal">Se Connecter&nbsp;&nbsp;<i class="fas fa-sign-in-alt" style="vertical-align: -0.065rem;"></i></a></div> -->
             <?php
                 // if( isset($_SESSION['id_user']) and isset($_SESSION['user_pseudo']) ) {
-                if( isset($_SESSION['user_pseudo']) ) {
-                    echo '<div class="nav-user mr-3 align-middle"><div>Connecté en tant que : '.$_SESSION['user_firstname'].'&nbsp;'.$_SESSION['user_lastname'].'<a class="text-right" href="userpanel.php">Mon compte</a><br><a class="text-right" href="include/user_logout.php">Se déconnecter&nbsp;&nbsp;<i class="fas fa-sign-out-alt" style="vertical-align: -0.065rem;"></i></a></div></div>';
+                // if( isset($_SESSION['user_pseudo']) ) { //before mvc
+                if( isset($nav) ) {
+                    echo '<div class="nav-user mr-3 align-middle"><div>Connecté en tant que : '.$nav->getUser_firstname().'&nbsp;'.$nav->getUser_lastname().'<a class="text-right" href="userpanel.php">Mon compte</a><br><a class="text-right" id="logout" href="#">Se déconnecter&nbsp;&nbsp;<i class="fas fa-sign-out-alt" style="vertical-align: -0.065rem;"></i></a></div></div>';
                 }else{
                     echo '<div class="nav-user mr-3 align-middle"><a class="text-right" href="" data-toggle="modal" data-target="#connectModal">Se Connecter&nbsp;&nbsp;<i class="fas fa-sign-in-alt" style="vertical-align: -0.065rem;"></i></a></div>';
                 }

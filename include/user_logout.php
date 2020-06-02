@@ -2,5 +2,6 @@
 session_start();
 $_SESSION = [];
 session_destroy();
-header('location:../index.php');
+echo "successfully disconnected";
+// header('location:../index.php');
 ?>

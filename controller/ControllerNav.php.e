@@ -27,7 +27,8 @@ class ControllerNav
         // $user = $this->_userManager->getUser();
 
         $this->_view = new View('Nav');
-        $this->_view->generate([]);
+        $this->_view->assign('nav');
+        $this->_view->render();
     }
 
 }

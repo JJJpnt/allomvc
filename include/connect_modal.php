@@ -1,4 +1,23 @@
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#connectModal"></button> -->
+<script type="text/javascript">
+$(function(){
+	$("#login").click(function(e){
+        // include/user_logout.php
+        e.preventDefault(); 
+
+        $.post("include/user_connect.php", $("#connect_form").serialize(), function(data){
+                alert(data);
+                location.reload();
+            }
+
+        );
+        return false;
+    });
+
+});
+
+</script>
+
 
 <!-- Connect Modal -->
 <div class="modal fade bg-mid-trans" id="connectModal" tabindex="-1" role="dialog" aria-labelledby="connectModalLabel" aria-hidden="true">
@@ -30,7 +49,8 @@
 					</div>
 					<div class="form-group">
             <!-- <input type="submit" value="Login" class="btn btn-login bg-dark-trans float-right"> -->
-            <a class="btn btn-login bg-dark-trans float-right" href="javascript:{}" onclick="document.getElementById('connect_form').submit();">Connexion</a>
+            <!-- <a class="btn btn-login bg-dark-trans float-right" href="javascript:{}" onclick="document.getElementById('connect_form').submit();">Connexion</a> -->
+            <a class="btn btn-login bg-dark-trans float-right" id="login" href="">Connexion</a>
 					</div>
 				</form>
 			</div>

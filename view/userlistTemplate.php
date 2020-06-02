@@ -1,4 +1,3 @@
-<?php //session_start(); ?>
 <!doctype html>
 <html lang="en">
 
@@ -36,10 +35,9 @@
 
     
 <body>
-<?= $nav ?>
 
 
-<?php include("include/connect_db.php"); ?>
+<?php //include("include/connect_db.php"); ?>
     
     
 <?php //include('include/nav.php'); ?>
@@ -63,7 +61,7 @@
 
     
 
-<?= $films ?>
+<?= $users ?>
 
 
 

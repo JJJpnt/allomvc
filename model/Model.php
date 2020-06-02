@@ -36,6 +36,21 @@ abstract class Model
         $stmt->closeCursor();
     }
 
+    protected function getSome($table, $obj, $field, $value)
+    {
+        $results = [];
+        $stmt = $this->getBdd()->prepare('SELECT * FROM '.$table.' WHERE '.$field.'="'.$value.'"'); //.' ORDER BY id_article desc');
+        $stmt->execute();
+        while($data = $stmt->fetch(PDO::FETCH_ASSOC))
+        {
+            // var_dump($data);
+            $results[] = new $obj($data);
+        }
+        // var_dump($var);
+        $stmt->closeCursor();
+        return $results;
+    }
+
 }
 
 

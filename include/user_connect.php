@@ -3,26 +3,44 @@
 $user_pseudo = !empty($_POST['user_pseudo']) ? $_POST['user_pseudo'] : NULL;
 $user_password = !empty($_POST['user_password']) ? $_POST['user_password'] : NULL;
 
-require_once('classes/database.php');
-require_once('classes/user.php');
+spl_autoload_register(function($class){
+    // echo("class : ".$class."\n");
+    require_once('../model/'.$class.'.php');
+});
 
-$dbo = new Database('localhost', 'allosimplon', 'root', '');
-$db = $dbo->getDb();
-var_dump($db);
-// $db = $db_conn->PDOConnexion();
+$userManager = new UserManager();
+$userManager->loginUser($user_pseudo, $user_password);
 
-$user = new User($db);
-var_dump($user);
-$connect_result = $user->connect($user_pseudo, $user_password);
-if($connect_result=="success") {
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
-    // echo "Connexion OK";
-} else if ($connect_result=="need_mail_verification"){
-    header('Location: ../index.php?verify_mail=true');
-    // echo "Connexion FAILED";
-} else {
-    echo "Connexion FAILED";
-}
+
+
+
+
+
+
+
+
+
+
+// require_once('classes/database.php');
+// require_once('classes/user.php');
+
+// $dbo = new Database('localhost', 'allosimplon', 'root', '');
+// $db = $dbo->getDb();
+// var_dump($db);
+// // $db = $db_conn->PDOConnexion();
+
+// $user = new User($db);
+// var_dump($user);
+// $connect_result = $user->connect($user_pseudo, $user_password);
+// if($connect_result=="success") {
+//     header('Location: ' . $_SERVER['HTTP_REFERER']);
+//     // echo "Connexion OK";
+// } else if ($connect_result=="need_mail_verification"){
+//     header('Location: ../index.php?verify_mail=true');
+//     // echo "Connexion FAILED";
+// } else {
+//     echo "Connexion FAILED";
+// }
 
 
 
